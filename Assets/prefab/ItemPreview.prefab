@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 161927834346329197}
   - component: {fileID: 1245115597759939453}
   - component: {fileID: 8414053568663002797}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ItemPreview
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.90370333, y: -0.12, z: 0.040938456}
-  m_LocalScale: {x: 0.80862534, y: 0.7246377, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -134,12 +134,12 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.2366667, y: 1.38}
+    oldSize: {x: 0.8244445, y: 0.92}
     newSize: {x: 0.7366667, y: 0.74333334}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.66869444, y: 0.459135}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0

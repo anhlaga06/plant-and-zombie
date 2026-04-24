@@ -318,7 +318,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_EventMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 115
   m_MaxRayIntersections: 0
 --- !u!1 &749617289
 GameObject:
@@ -369,6 +369,52 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &933058434
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 933058435}
+  - component: {fileID: 933058436}
+  m_Layer: 0
+  m_Name: GameLogic
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &933058435
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 933058434}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.244633, y: 1.2313371, z: -0.019601168}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &933058436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 933058434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d80e0ab93e64b0747901df7bea47f9b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shop: {fileID: 1942260909}
+  garden: {fileID: 1492758964}
 --- !u!1 &1492758964
 GameObject:
   m_ObjectHideFlags: 0
@@ -398,8 +444,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 054fe9de9920e3540a163eca08951558, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cellPre: {fileID: 2071468615187705954, guid: 2451aeae41ca4ac47ac8ee2ce5c61b0c, type: 3}
-  shop: {fileID: 1942260909}
+  cellPrefab: {fileID: 0}
 --- !u!4 &1492758966
 Transform:
   m_ObjectHideFlags: 0
@@ -561,10 +606,15 @@ MonoBehaviour:
   mItems:
   - id: PeaShooter
     plant: {fileID: 2035998296000932606, guid: c5d2fefdb35692e44b87dd3578664163, type: 3}
+    cost: 100
+    cooldown: 10
   - id: SunFlower
     plant: {fileID: 1482697811948817570, guid: 3c31d2bcae59324428fc401d0941d0c5, type: 3}
-  mItemSample: {fileID: 2708442727312151670, guid: 693f1713d5af4034aa8f162bf43e799a, type: 3}
-  mItemPreview: {fileID: 3164160400404523721, guid: 4c668974b0dca6b4ab7ad2fc156652a3, type: 3}
+    cost: 50
+    cooldown: 5
+  mItemSamplePrefab: {fileID: 0}
+  mPreviewPrefab: {fileID: 0}
+  mBankPrefab: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -574,3 +624,4 @@ SceneRoots:
   - {fileID: 217002502}
   - {fileID: 749617291}
   - {fileID: 1492758966}
+  - {fileID: 933058435}
