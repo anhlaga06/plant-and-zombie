@@ -85,7 +85,7 @@ public class ShopHandler
     {
         if (!IsBuying()) return;
         mShop.OnStopPreview();
-        mShop.OnPlant(mLastBuy.item, position);
+        mShop.OnPlant(mLastBuy, position);
         mLastBuy = null;
     }
 }

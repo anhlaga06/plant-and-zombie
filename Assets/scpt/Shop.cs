@@ -73,10 +73,11 @@ public class Shop : MonoBehaviour
         Destroy(mCurrentPreview);
     }
 
-    public void OnPlant(PlantItem item, Vector3 position)
+    public void OnPlant(ShopEventData even, Vector3 position)
     {
         Debug.Log(nameof(OnPlant));
-        Instantiate(item.plant, position, Quaternion.identity);
+        Instantiate(even.item.plant, position, Quaternion.identity);
+        even.caller.GetComponent<Item>().Deactivate();
     }
 
 }
