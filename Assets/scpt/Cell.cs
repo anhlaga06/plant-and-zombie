@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Cell : MonoBehaviour, IPointerDownHandler
+public class Cell : Background, IPointerDownHandler
 {
     private ShopHandler mShopHandler;
 

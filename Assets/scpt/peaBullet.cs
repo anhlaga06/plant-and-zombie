@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class peaBullet : MonoBehaviour
+public class peaBullet : Bullet
 {
     // Start is called before the first frame update
     [SerializeField]

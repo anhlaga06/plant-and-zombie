@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Item : MonoBehaviour, IPointerDownHandler
+public class Item : Background, IPointerDownHandler
 {
     private ShopHandler mShopHandler;
     private PlantItem mItem;

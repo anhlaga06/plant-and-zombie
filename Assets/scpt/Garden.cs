@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Garden : MonoBehaviour
+public class Garden : Background
 {
     public GameObject cellPrefab;
     private ShopHandler mShopHandler;
@@ -12,9 +12,9 @@ public class Garden : MonoBehaviour
 
     private void  GenerateLine(int lineTh)
     {
-        bool dark = lineTh % 2 == 0;
         for (int i = 0; i < 7; i++)
         {
+            bool dark = (lineTh + i) % 2 == 0;
             Vector2 pos = new Vector2(-7 + i, lineTh);
             var cell = Instantiate(cellPrefab, pos, Quaternion.identity);
             cell.transform.SetParent(transform);

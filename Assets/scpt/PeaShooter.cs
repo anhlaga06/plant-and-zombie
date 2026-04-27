@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class PeaShooter : MonoBehaviour 
+public class PeaShooter : Character 
 {
     private GameObject head;
     public GameObject bulletPref;

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class Bank : MonoBehaviour
+public class Bank : Background
 {
     private int money;
     // Start is called before the first frame update

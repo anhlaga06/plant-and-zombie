@@ -21,7 +21,7 @@ public class PlantItem
         return (PlantItem)this.MemberwiseClone();
     }
 }
-public class Shop : MonoBehaviour
+public class Shop : Background
 {
     public List<PlantItem> mItems;
     public GameObject mItemSamplePrefab;

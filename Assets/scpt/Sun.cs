@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Sun : MonoBehaviour, IPointerDownHandler
+public class Sun : Bullet, IPointerDownHandler
 {
     private ShopHandler mShopHandler;
 

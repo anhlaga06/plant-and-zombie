@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SunFlower : MonoBehaviour, SunGenerator
+public class SunFlower : Character, SunGenerator
 {
     private SunFlowerHandler mHandler;
     public GameObject sunPrefab;

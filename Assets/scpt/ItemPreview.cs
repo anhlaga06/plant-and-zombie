@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class ItemPreview : MonoBehaviour, IPointerDownHandler
+public class ItemPreview : Preview, IPointerDownHandler
 {
     private void Update()
     {
