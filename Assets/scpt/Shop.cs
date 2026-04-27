@@ -76,8 +76,11 @@ public class Shop : MonoBehaviour
     public void OnPlant(ShopEventData even, Vector3 position)
     {
         Debug.Log(nameof(OnPlant));
-        Instantiate(even.item.plant, position, Quaternion.identity);
+        var plant = Instantiate(even.item.plant, position, Quaternion.identity);
+        if (plant.TryGetComponent<SunGenerator>(out var p))
+        {
+            p.SetShopHandler(mShopHandler);
+        }
         even.caller.GetComponent<Item>().Deactivate();
     }
-
 }

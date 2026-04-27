@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameLogic : MonoBehaviour
 {
     public GameObject shop;
     public GameObject garden;
+    public GameObject zombiePrefab;
     void Start()
     {
         var shopSc = shop.GetComponent<Shop>();
@@ -18,6 +20,15 @@ public class GameLogic : MonoBehaviour
     }
 
     // Update is called once per frame
+
+    [ContextMenu("spawn zombie")]
+    void SpawnZomebie()
+    {
+        //Screen
+        var h = Camera.main.orthographicSize;
+        var w = h * Screen.width / Screen.height;
+        Instantiate(zombiePrefab, new Vector3(w / 2, 0, 0), Quaternion.identity);
+    }
     void Update()
     {
         

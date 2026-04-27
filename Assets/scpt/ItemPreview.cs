@@ -10,8 +10,8 @@ public class ItemPreview : MonoBehaviour, IPointerDownHandler
         if (cell != null)
         {
             var pos = cell.transform.position;
-            var size = cell.bounds.size;
-            var center = new Vector2(pos.x + size.x / 2, pos.y + size.y / 2);
+            //var size = cell.bounds.size;
+            var center = new Vector2(pos.x, pos.y);
             MoveTo(center);
         } else
         {

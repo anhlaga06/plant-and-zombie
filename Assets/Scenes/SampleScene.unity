@@ -415,6 +415,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shop: {fileID: 1942260909}
   garden: {fileID: 1492758964}
+  zombiePrefab: {fileID: 8585946570186739898, guid: 54150df95fc4d7f47a6bede5e49a0149, type: 3}
 --- !u!1 &1492758964
 GameObject:
   m_ObjectHideFlags: 0
@@ -444,7 +445,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 054fe9de9920e3540a163eca08951558, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cellPrefab: {fileID: 0}
+  cellPrefab: {fileID: 2071468615187705954, guid: 2451aeae41ca4ac47ac8ee2ce5c61b0c, type: 3}
 --- !u!4 &1492758966
 Transform:
   m_ObjectHideFlags: 0
@@ -612,9 +613,9 @@ MonoBehaviour:
     plant: {fileID: 1482697811948817570, guid: 3c31d2bcae59324428fc401d0941d0c5, type: 3}
     cost: 50
     cooldown: 5
-  mItemSamplePrefab: {fileID: 0}
-  mPreviewPrefab: {fileID: 0}
-  mBankPrefab: {fileID: 0}
+  mItemSamplePrefab: {fileID: 2708442727312151670, guid: 693f1713d5af4034aa8f162bf43e799a, type: 3}
+  mPreviewPrefab: {fileID: 3164160400404523721, guid: 4c668974b0dca6b4ab7ad2fc156652a3, type: 3}
+  mBankPrefab: {fileID: 8179082587648865725, guid: 3872d15ef55bf154eac3d500e1e9a69d, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

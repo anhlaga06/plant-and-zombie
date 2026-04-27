@@ -14,6 +14,7 @@ public class peaBullet : MonoBehaviour
     void Start()
     {
         rg.velocity = Vector3.right * speed;
+        Debug.Log(rg.velocity);
         var camSize = Camera.main.orthographicSize;
         h = camSize;
         w = h * Screen.width / Screen.height;
@@ -28,16 +29,20 @@ public class peaBullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(rg.velocity);
         if (isOutScreen(transform.position))
         {
             Destroy(this.gameObject);
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("hit something");
-        Destroy(this.gameObject);
+        rg.velocity = Vector3.right * speed;
+        if (collision.gameObject.CompareTag("zombie"))
+        {
+            Destroy(this.gameObject);
+        }
     }
-
 }

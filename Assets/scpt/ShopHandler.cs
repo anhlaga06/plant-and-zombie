@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -87,5 +88,11 @@ public class ShopHandler
         mShop.OnStopPreview();
         mShop.OnPlant(mLastBuy, position);
         mLastBuy = null;
+    }
+
+    internal void AddSun(int amount)
+    {
+        mBankAccount += amount;
+        mShop.SetBank(mBankAccount);
     }
 }

@@ -15,7 +15,7 @@ public class Cell : MonoBehaviour, IPointerDownHandler
     {
         //call shop to plant
         Debug.Log("clicked!");
-        var plantPos = new Vector3(transform.position.x + 0.5f, transform.position.y + 0.5f, transform.position.z);
+        var plantPos = new Vector3(transform.position.x, transform.position.y, transform.position.z);
         mShopHandler.Plant(plantPos);
     }
 
