@@ -44,12 +44,13 @@ public class Shop : Background
         var bank = Instantiate(mBankPrefab, startPos + new Vector3(0.5f, 0.5f, 0), Quaternion.identity);
         bank.transform.SetParent(transform);
         mBankHandler = bank.GetComponent<Bank>();
-        for (int i = 0; i < mItems.Count; i++) {
+        for (int i = 0; i < mItems.Count; i++)
+        {
             var item = mItems[i];
             var cell = Instantiate(mItemSamplePrefab);
             cell.transform.SetParent(transform);
             cell.transform.position = startPos + new Vector3(1.5f + i, 0.5f, 0);
-            cell.GetComponent <Item>().Init(item, mShopHandler);
+            cell.GetComponent<Item>().Init(item, mShopHandler);
         }
     }
 
@@ -82,5 +83,10 @@ public class Shop : Background
             p.SetShopHandler(mShopHandler);
         }
         even.caller.GetComponent<Item>().Deactivate();
+    }
+
+    internal Vector3 GetBankPos()
+    {
+        return mBankHandler.transform.position;
     }
 }

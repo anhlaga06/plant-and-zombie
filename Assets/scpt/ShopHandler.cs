@@ -39,7 +39,8 @@ public class ShopHandler
             if (IsBuying())
             {
                 RefundLastBuy();
-            } else
+            }
+            else
             {
                 if (Buy(eventData.item))
                 {
@@ -47,7 +48,8 @@ public class ShopHandler
                     Preview(eventData.item);
                 }
             }
-        } else if (eventData.key == KeyCode.Escape)
+        }
+        else if (eventData.key == KeyCode.Escape)
         {
             RefundLastBuy();
         }
@@ -68,7 +70,7 @@ public class ShopHandler
 
     private bool Buy(PlantItem item)
     {
-        if(item.cost >  mBankAccount)
+        if (item.cost > mBankAccount)
         {
             return false;
         }
@@ -94,5 +96,10 @@ public class ShopHandler
     {
         mBankAccount += amount;
         mShop.SetBank(mBankAccount);
+    }
+
+    internal Vector3 GetBankPos()
+    {
+        return mShop.GetBankPos();
     }
 }
