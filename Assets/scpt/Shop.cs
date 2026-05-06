@@ -56,7 +56,7 @@ public class Shop : Background
 
     public void OnPreview(PlantItem item)
     {
-        Debug.Log(nameof(OnPreview));
+        Log.Debug(nameof(OnPreview));
         var sr = mPreviewPrefab.GetComponent<SpriteRenderer>();
         sr.sprite = Resources.Load<Sprite>(item.ImgPath());
         mCurrentPreview = Instantiate(mPreviewPrefab, transform.position + Vector3.back, transform.rotation);
@@ -64,19 +64,19 @@ public class Shop : Background
 
     public void SetBank(int amount)
     {
-        Debug.Log(nameof(SetBank));
+        Log.Debug(nameof(SetBank));
         mBankHandler.SetNumber(amount);
     }
 
     public void OnStopPreview()
     {
-        Debug.Log(nameof(OnStopPreview));
+        Log.Debug(nameof(OnStopPreview));
         Destroy(mCurrentPreview);
     }
 
     public void OnPlant(ShopEventData even, Vector3 position)
     {
-        Debug.Log(nameof(OnPlant));
+        Log.Debug(nameof(OnPlant));
         var plant = Instantiate(even.item.plant, position, Quaternion.identity);
         if (plant.TryGetComponent<SunGenerator>(out var p))
         {

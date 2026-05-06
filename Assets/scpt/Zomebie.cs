@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Zomebie : Character
@@ -8,10 +10,8 @@ public class Zomebie : Character
     [SerializeField]
     private float speed = 1.0f;
     public Rigidbody2D rb;
-    private int hp = 10;
-    private float cooldown = 0;
-    private float damageRate = 1;
-    void move()
+    private ZombieHandler mHandler;
+    void Move()
     {
         rb.velocity = Vector3.left * speed;
     }
@@ -19,46 +19,67 @@ public class Zomebie : Character
     void Start()
     {
         //cooldown = damageRate;
-        move();
+        mHandler = new ZombieHandler(this);
+        mHandler.Init();
     }
 
-    // Update is called once per frame
     void Update()
     {
+        mHandler.Process();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(collision.gameObject);
-        if (collision.gameObject.CompareTag("plant_bullet"))
+        Log.Debug(collision.gameObject);
+        if (collision.gameObject.CompareTag("Bullet"))
         {
             Destroy(collision.gameObject);
-            if (--hp == 0)
-            {
-                Destroy(gameObject);
-            }
-        } else
+            mHandler.TakeDamage(1);
+        }
+        else if (collision.gameObject.CompareTag("Plant"))
         {
-            rb.velocity = Vector3.left * 0;
+            var damageable = collision.gameObject.GetComponent<IDamageable>();
+            if (damageable != null)
+            {
+                mHandler.MetPlant(damageable);
+            }
         }
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void SetState(bool isMove = false, bool isEat = false, bool isDie = false)
     {
-        var plant = collision.GetComponent<PeaShooter>();
-        if (plant != null) 
-        {
-            cooldown -= Time.deltaTime;
-            if (cooldown < 0) 
-            {
-                cooldown = damageRate;
-                plant.takeDamage(1);
-            }
-        }
+        var animator = GetComponent<Animator>();
+        animator.SetBool("walk", isMove);
+        animator.SetBool("eat", isEat);
+        // animator.SetBool("die", isDie);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        Debug.Log(collision.gameObject);
-        move();
+        if (collision.gameObject.CompareTag("Plant"))
+        {
+            mHandler.ExitPlant();
+        }
+    }
+
+    internal void OnIdle()
+    {
+        SetState();
+    }
+
+    internal void OnMove()
+    {
+        SetState(isMove: true);
+        Move();
+    }
+
+    internal void OnAttack()
+    {
+        SetState(isEat: true);
+        rb.velocity = Vector3.zero;
+    }
+
+    internal void OnDie()
+    {
+        Destroy(gameObject);
     }
 }

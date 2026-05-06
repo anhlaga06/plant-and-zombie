@@ -14,11 +14,11 @@ public class peaBullet : Bullet
     void Start()
     {
         rg.velocity = Vector3.right * speed;
-        Debug.Log(rg.velocity);
+        Log.Debug(rg.velocity);
         var camSize = Camera.main.orthographicSize;
         h = camSize;
         w = h * Screen.width / Screen.height;
-        //Debug.Log("H: " + h + ", W: " + w);
+        Log.Debug("H: " + h + ", W: " + w);
     }
 
     bool isOutScreen(Vector3 positon)
@@ -29,18 +29,8 @@ public class peaBullet : Bullet
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(rg.velocity);
+        Log.Debug(rg.velocity);
         if (isOutScreen(transform.position))
-        {
-            Destroy(this.gameObject);
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Debug.Log("hit something");
-        rg.velocity = Vector3.right * speed;
-        if (collision.gameObject.CompareTag("zombie"))
         {
             Destroy(this.gameObject);
         }

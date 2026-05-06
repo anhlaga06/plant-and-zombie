@@ -13,7 +13,7 @@ public class Sun : Bullet, IPointerDownHandler
     }
     public void OnPointerDown(PointerEventData eventData)
     {
-        Debug.Log(nameof(OnPointerDown));
+        Log.Debug(nameof(OnPointerDown));
         mMoveToBank = true;
         mBankPos = mShopHandler.GetBankPos();
     }

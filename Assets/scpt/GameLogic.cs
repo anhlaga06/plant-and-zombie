@@ -5,9 +5,29 @@ using UnityEngine;
 
 public class GameLogic : MonoBehaviour
 {
+    public static GameLogic Instance { get; private set; }
+
     public GameObject shop;
     public GameObject garden;
     public GameObject zombiePrefab;
+
+    [SerializeField]
+    private Vector3 GardensPos = new(4.35f, -0.34f, 0);
+    [SerializeField]
+    private Vector3 CellSize = new(1.25f, 1.4f, 1);
+
+    private void Awake()
+    {
+        Log.level = Log.Level.Error;
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+        Log.Info("GameLogic initialized.");
+    }
+
     void Start()
     {
         var shopSc = shop.GetComponent<Shop>();
@@ -31,6 +51,16 @@ public class GameLogic : MonoBehaviour
     }
     void Update()
     {
-        
+
+    }
+
+    public Vector3 GetGardensPos()
+    {
+        return GardensPos;
+    }
+
+    public Vector2 GetCellSize()
+    {
+        return CellSize;
     }
 }

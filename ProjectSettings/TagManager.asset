@@ -4,8 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - plant_bullet
   - optional
+  - Plant
+  - Zombie
+  - Bullet
   layers:
   - Default
   - TransparentFX
@@ -42,4 +44,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 645638499
+    locked: 0
+  - name: Character
+    uniqueID: 774725987
+    locked: 0
+  - name: Preview
+    uniqueID: 4010790781
+    locked: 0
+  - name: Bullet
+    uniqueID: 4217983567
     locked: 0

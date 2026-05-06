@@ -14,7 +14,7 @@ public class Cell : Background, IPointerDownHandler
     public void OnPointerDown(PointerEventData eventData)
     {
         //call shop to plant
-        Debug.Log("clicked!");
+        Log.Debug("clicked!");
         var plantPos = new Vector3(transform.position.x, transform.position.y, transform.position.z);
         mShopHandler.Plant(plantPos);
     }

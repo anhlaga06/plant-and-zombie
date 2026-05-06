@@ -10,14 +10,16 @@ public class Garden : Background
         mShopHandler = shopHandler;
     }
 
-    private void  GenerateLine(int lineTh)
+    private void GenerateLine(int lineTh)
     {
-        for (int i = 0; i < 7; i++)
+        var cellSize = GameLogic.Instance.GetCellSize();
+        for (int i = 0; i < 9; i++)
         {
             bool dark = (lineTh + i) % 2 == 0;
-            Vector2 pos = new Vector2(-7 + i, lineTh);
+            var pos = Vector3.Scale(cellSize, new Vector3(-7 + i, lineTh, 0));
             var cell = Instantiate(cellPrefab, pos, Quaternion.identity);
             cell.transform.SetParent(transform);
+            cell.transform.localScale = cellSize;
             cell.GetComponent<Cell>().SetShopHandler(mShopHandler);
             cell.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("garden/cell_" + (dark ? "d" : "l"));
         }
@@ -25,9 +27,16 @@ public class Garden : Background
 
     public void GenerateCells()
     {
-        Debug.Log(nameof(GenerateCells));
+        Log.Debug(nameof(GenerateCells));
         GenerateLine(0);
         GenerateLine(-1);
         GenerateLine(1);
+        GenerateLine(2);
+        GenerateLine(-2);
+    }
+
+    private void Start()
+    {
+        transform.position = GameLogic.Instance.GetGardensPos();
     }
 }

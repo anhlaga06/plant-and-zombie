@@ -13,7 +13,8 @@ public class ItemPreview : Preview, IPointerDownHandler
             //var size = cell.bounds.size;
             var center = new Vector2(pos.x, pos.y);
             MoveTo(center);
-        } else
+        }
+        else
         {
             MoveTo(mousePos);
         }
@@ -37,6 +38,6 @@ public class ItemPreview : Preview, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        Debug.Log("clicked!");
+        Log.Debug("clicked!");
     }
 }

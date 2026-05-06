@@ -119,7 +119,7 @@ GameObject:
   - component: {fileID: 3898216949729159279}
   m_Layer: 0
   m_Name: PeaShooter
-  m_TagString: Untagged
+  m_TagString: Plant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -154,8 +154,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b7108b019ffd5c4eaa158b7ab810091, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootRate: 5
-  readyRate: 2.5
   bulletPref: {fileID: 9097384760797041423, guid: 3744d8932004cff40921ad78acb19fde, type: 3}
 --- !u!61 &3898216949729159279
 BoxCollider2D:

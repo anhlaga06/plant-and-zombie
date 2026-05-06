@@ -4,12 +4,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class PeaShooter : Character 
+public class PeaShooter : Character, IDamageable
 {
     private GameObject head;
     public GameObject bulletPref;
     [SerializeField]
-    private PeaShooterConfig mConfig = new PeaShooterConfig {idleTime = 3.0f, shootingTime = 2.0f, hp = 10 };
+    private PeaShooterConfig mConfig = new PeaShooterConfig { idleTime = 3.0f, shootingTime = 2.0f, hp = 10 };
     private PeaShooterHandler mHandler;
     void Start()
     {
@@ -29,34 +29,34 @@ public class PeaShooter : Character
         mHandler.Process();
     }
 
-    public void takeDamage(int damage)
+    public void TakeDamage(int damage)
     {
-        Debug.Log(nameof(takeDamage));
+        Log.Debug(nameof(TakeDamage));
         mHandler.TakeDamage(damage);
     }
 
     internal void OnIdle()
     {
-        Debug.Log(nameof(OnIdle));
+        Log.Debug(nameof(OnIdle));
         state(false);
     }
 
     internal void OnShooting()
     {
-        Debug.Log(nameof(OnShooting));
+        Log.Debug(nameof(OnShooting));
         state(true);
     }
 
     internal void OnShoot()
     {
-        Debug.Log(nameof(OnShoot));
+        Log.Debug(nameof(OnShoot));
         var firePoint = head.transform.Find("Fire point").gameObject.transform;
         Instantiate(bulletPref, firePoint.position, firePoint.rotation);
     }
 
     internal void OnDie()
     {
-        Debug.Log(nameof(OnDie));
+        Log.Debug(nameof(OnDie));
         Destroy(gameObject);
     }
 }

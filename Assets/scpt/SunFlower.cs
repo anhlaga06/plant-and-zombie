@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SunFlower : Character, SunGenerator
+public class SunFlower : Character, SunGenerator, IDamageable
 {
     private SunFlowerHandler mHandler;
     public GameObject sunPrefab;
@@ -17,7 +17,7 @@ public class SunFlower : Character, SunGenerator
 
     internal void OnDie()
     {
-        Debug.Log(nameof(OnDie));
+        Log.Debug(nameof(OnDie));
         Destroy(gameObject);
     }
 
@@ -30,11 +30,16 @@ public class SunFlower : Character, SunGenerator
 
     void Update()
     {
-        mHandler.Process();   
+        mHandler.Process();
     }
 
     public void SetShopHandler(ShopHandler shopHandler)
     {
         mShopHandler = shopHandler;
+    }
+
+    public void TakeDamage(int damage)
+    {
+        mHandler.TakeDamage(damage);
     }
 }

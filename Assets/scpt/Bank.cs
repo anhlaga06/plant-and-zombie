@@ -14,22 +14,23 @@ public class Bank : Background
 
     public void SetNumber(int number)
     {
-        Debug.Log("bank: " + number);
+        Log.Debug("bank: " + number);
         money = number;
         getTextUI().text = number.ToString();
     }
 
-    public int GetMoney() {
+    public int GetMoney()
+    {
         return money;
     }
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

@@ -32,54 +32,55 @@ public class PeaShooterHandler
     public void Config(PeaShooterConfig config)
     {
         mConfig = config;
-        Debug.Log(config);
+        Log.Debug(nameof(Config) + " " + config);
     }
 
     public void Init()
     {
         mStatus = mConfig;
         mState = state.Idle;
-        Debug.Log(nameof(Init) + " " + mState);
+        Log.Debug(nameof(Init) + " " + mState);
     }
 
     public void Process()
     {
-        switch(mState)
+        switch (mState)
         {
             case state.Idle:
-            {
-                mPeaShooter.OnIdle();
-                mStatus.idleTime -= Time.deltaTime;
-                if (mStatus.idleTime < 0)
                 {
-                    mStatus.idleTime = mConfig.idleTime;
-                    mState = state.Shooting;
+                    mPeaShooter.OnIdle();
+                    mStatus.idleTime -= Time.deltaTime;
+                    if (mStatus.idleTime < 0)
+                    {
+                        mStatus.idleTime = mConfig.idleTime;
+                        mState = state.Shooting;
+                    }
+                    break;
                 }
-                break;
-            }
             case state.Shooting:
-            {
-                mPeaShooter.OnShooting();
-                mStatus.shootingTime -= Time.deltaTime;
-                if (mStatus.shootingTime < 0)
                 {
-                    mStatus.shootingTime = mConfig.shootingTime;
-                    mState = state.Shoot;
+                    mPeaShooter.OnShooting();
+                    mStatus.shootingTime -= Time.deltaTime;
+                    if (mStatus.shootingTime < 0)
+                    {
+                        mStatus.shootingTime = mConfig.shootingTime;
+                        mState = state.Shoot;
+                    }
+                    break;
                 }
-                break;
-            }
             case state.Shoot:
-            {
-                mPeaShooter.OnShoot();
-                mState = state.Idle;
-                break;
-            }
+                {
+                    mPeaShooter.OnShoot();
+                    mState = state.Idle;
+                    break;
+                }
             case state.Die:
-            {
-                mPeaShooter.OnDie();
-                break;
-            }
+                {
+                    mPeaShooter.OnDie();
+                    break;
+                }
             default:
+                Log.Debug("Unknown state: " + mState);
                 break;
         }
     }
@@ -88,5 +89,6 @@ public class PeaShooterHandler
     {
         mStatus.hp -= amount;
         if (mStatus.hp <= 0) mState = state.Die;
+        Log.Debug(nameof(TakeDamage) + " " + mStatus.hp);
     }
 }

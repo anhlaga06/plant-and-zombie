@@ -17,7 +17,7 @@ public class Item : Background, IPointerDownHandler
     }
     private void LoadAvatar()
     {
-        Debug.Log("Load " + mItem.ImgPath());
+        Log.Debug("Load " + mItem.ImgPath());
         var sr = gameObject.GetComponent<SpriteRenderer>();
         sr.sprite = Resources.Load<Sprite>(mItem.ImgPath());
     }
@@ -37,7 +37,7 @@ public class Item : Background, IPointerDownHandler
     {
         timer += Time.deltaTime;
         var progress = timer / mItem.cooldown;
-        Debug.Log("on cooDown" + progress);
+        Log.Debug("on cooDown" + progress);
         if ( progress >= 1)
         {
             progress = 1;
@@ -72,7 +72,7 @@ public class Item : Background, IPointerDownHandler
             return;
         }
         mShopHandler.handle(new ShopEventData { key = KeyCode.Mouse0, pointer = eventData, caller = this , item = GetInfo()});
-        Debug.Log(mItem.id + " clicked!");
+        Log.Debug(mItem.id + " clicked!");
     }
 
 }
